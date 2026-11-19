@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>รายละเอียดรถ — NOIR CARS</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      // Preview switch: ?motion=1 plays the animations even when the OS asks for reduced motion; ?motion=0 turns it off.
+      try {
+        var motion = new URLSearchParams(location.search).get("motion");
+        if (motion === "1") localStorage.setItem("force-motion", "1");
+        if (motion === "0") localStorage.removeItem("force-motion");
+        if (localStorage.getItem("force-motion") === "1") document.documentElement.classList.add("force-motion");
+      } catch (e) {}
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="icon" type="image/png" href="img/logo/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="car">
+    <div data-header></div>
+
+    <main>
+      <div class="wrap">
+        <p style="padding-top: 28px; font-size: 13px; color: var(--muted)"><a href="cars.html">← รถทั้งหมด</a></p>
+        <div class="detail" data-detail></div>
+      </div>
+
+      <section class="section" id="finance">
+        <div class="wrap calc" data-calc>
+          <div class="calc-form reveal">
+            <div style="display: grid; gap: 18px">
+              <span class="eyebrow">Finance</span>
+              <h2 class="h2">ผ่อนคันนี้ <em>เท่าไหร่</em></h2>
+            </div>
+            <div class="field">
+              <div class="top"><span>ราคารถ</span><b data-out="price"></b></div>
+              <input type="range" name="price" min="300000" max="20000000" step="1000" aria-label="ราคารถ" />
+            </div>
+            <div class="field">
+              <div class="top"><span>เงินดาวน์</span><b data-out="down"></b></div>
+              <input type="range" name="down" min="0" max="50" step="5" value="25" aria-label="เงินดาวน์" />
+            </div>
+            <div class="field">
+              <div class="top"><span>ระยะเวลาผ่อน</span></div>
+              <div class="terms">
+                <button type="button" data-months="48" aria-pressed="false">48 งวด</button>
+                <button type="button" data-months="60" aria-pressed="false">60 งวด</button>
+                <button type="button" data-months="72" aria-pressed="true">72 งวด</button>
+                <button type="button" data-months="84" aria-pressed="false">84 งวด</button>
+              </div>
+            </div>
+          </div>
+          <div class="calc-result reveal">
+            <span class="eyebrow th">ผ่อนต่อเดือนประมาณ</span>
+            <div class="amount" data-out="amount"></div>
+            <small data-out="loan"></small>
+            <a class="btn" href="contact.html">ขอเช็กเครดิตฟรี</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0">
+        <div class="wrap">
+          <div class="section-head"><div><span class="eyebrow">You may also like</span><h2 class="h2">Similar <em>cars</em></h2></div></div>
+          <div class="cars" data-similar></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="lightbox" data-lightbox role="dialog" aria-label="ภาพขยาย">
+      <img alt="" />
+      <button class="x" type="button" aria-label="ปิด">×</button>
+      <button class="prev" type="button" aria-label="ภาพก่อนหน้า">‹</button>
+      <button class="next" type="button" aria-label="ภาพถัดไป">›</button>
+      <span class="count"></span>
+    </div>
+
+    <div data-footer></div>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/motion.js"></script>
+  </body>
+</html>

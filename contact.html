@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ติดต่อ / นัดดูรถ — NOIR CARS</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      // Preview switch: ?motion=1 plays the animations even when the OS asks for reduced motion; ?motion=0 turns it off.
+      try {
+        var motion = new URLSearchParams(location.search).get("motion");
+        if (motion === "1") localStorage.setItem("force-motion", "1");
+        if (motion === "0") localStorage.removeItem("force-motion");
+        if (localStorage.getItem("force-motion") === "1") document.documentElement.classList.add("force-motion");
+      } catch (e) {}
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="icon" type="image/png" href="img/logo/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="contact">
+    <div data-header></div>
+
+    <main>
+      <div class="wrap page-head">
+        <span class="eyebrow">Contact</span>
+        <h1 class="display" style="font-size: clamp(44px, 6vw, 92px)">Let's <em>talk.</em></h1>
+      </div>
+
+      <div class="wrap contact" style="padding-bottom: var(--section)">
+        <form class="form" data-form>
+          <div class="tabs">
+            <button class="chip" type="button" data-topic="visit" aria-pressed="true">นัดดูรถ / ทดลองขับ</button>
+            <button class="chip" type="button" data-topic="finance" aria-pressed="false">เช็กเครดิต</button>
+            <button class="chip" type="button" data-topic="sell" aria-pressed="false">ขาย / เทิร์นรถ</button>
+          </div>
+          <input type="hidden" name="topic" value="visit" />
+          <div class="two">
+            <label>ชื่อ<input name="name" required autocomplete="name" /></label>
+            <label>เบอร์โทร<input name="tel" required inputmode="tel" autocomplete="tel" /></label>
+          </div>
+          <label>รถที่สนใจ<select name="car"></select></label>
+          <div class="two">
+            <label>วันที่สะดวก<input name="date" type="date" /></label>
+            <label>ช่วงเวลา<select name="time"><option>10:00 – 12:00</option><option>13:00 – 15:00</option><option>15:00 – 19:00</option></select></label>
+          </div>
+          <label>ข้อความเพิ่มเติม<textarea name="note"></textarea></label>
+          <button class="btn" type="submit">ส่งข้อมูล</button>
+          <p class="ok">ได้รับข้อมูลแล้ว ทีมงานจะโทรกลับภายใน 30 นาทีในเวลาทำการ (เว็บตัวอย่าง: ยังไม่ส่งข้อมูลจริง)</p>
+        </form>
+
+        <div class="contact-card">
+          <figure><img src="img/scenes/showroom.webp" alt="ไฟหน้ารถในโชว์รูม" loading="lazy" /></figure>
+          <dl>
+            <dt>โชว์รูม</dt>
+            <dd>ถนนตัวอย่าง เขตตัวอย่าง กรุงเทพฯ 10000</dd>
+            <dt>เปิดทุกวัน</dt>
+            <dd>10:00 – 19:00</dd>
+            <dt>โทร</dt>
+            <dd>02 000 0000</dd>
+            <dt>LINE</dt>
+            <dd>@noircars</dd>
+          </dl>
+        </div>
+      </div>
+    </main>
+
+    <div data-footer></div>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/motion.js"></script>
+  </body>
+</html>

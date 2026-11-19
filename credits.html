@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>เครดิตภาพ — NOIR CARS</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      // Preview switch: ?motion=1 plays the animations even when the OS asks for reduced motion; ?motion=0 turns it off.
+      try {
+        var motion = new URLSearchParams(location.search).get("motion");
+        if (motion === "1") localStorage.setItem("force-motion", "1");
+        if (motion === "0") localStorage.removeItem("force-motion");
+        if (localStorage.getItem("force-motion") === "1") document.documentElement.classList.add("force-motion");
+      } catch (e) {}
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="icon" type="image/png" href="img/logo/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="credits">
+    <div data-header></div>
+
+    <main class="wrap" style="padding-bottom: var(--section)">
+      <div class="page-head">
+        <span class="eyebrow">Credits</span>
+        <h1 class="h2">Photo <em>credits</em></h1>
+        <p class="lead">
+          NOIR CARS เป็นเว็บไซต์ตัวอย่างโดย SOFT Z DIGITAL ราคา สเปก ที่อยู่ และรีวิวเป็นข้อมูลสมมติ ภาพรถทั้งหมดมาจาก Unsplash ภายใต้ Unsplash License ปรับโทนสีให้เป็นชุดเดียวกัน
+          โลโก้แบรนด์รถจาก Wikimedia Commons เป็นเครื่องหมายการค้าของเจ้าของแต่ละราย ใช้เพื่อระบุยี่ห้อรถเท่านั้น
+        </p>
+      </div>
+      <h2 class="th-title" style="margin: 24px 0 12px">ภาพจาก Unsplash</h2>
+      <ul class="credits-list" data-credits></ul>
+      <h2 class="th-title" style="margin: 48px 0 12px">โลโก้แบรนด์</h2>
+      <ul class="credits-list" data-logo-credits></ul>
+    </main>
+
+    <div data-footer></div>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/motion.js"></script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>รถทั้งหมด — NOIR CARS</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      // Preview switch: ?motion=1 plays the animations even when the OS asks for reduced motion; ?motion=0 turns it off.
+      try {
+        var motion = new URLSearchParams(location.search).get("motion");
+        if (motion === "1") localStorage.setItem("force-motion", "1");
+        if (motion === "0") localStorage.removeItem("force-motion");
+        if (localStorage.getItem("force-motion") === "1") document.documentElement.classList.add("force-motion");
+      } catch (e) {}
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="icon" type="image/png" href="img/logo/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="cars">
+    <div data-header></div>
+
+    <main>
+      <div class="wrap page-head" data-head></div>
+
+      <div class="filters">
+        <div class="wrap">
+          <div style="display: flex; gap: 8px" data-filter-brands></div>
+          <span class="divider"></span>
+          <div style="display: flex; gap: 8px" data-filter-types></div>
+          <span class="divider"></span>
+          <select data-filter-max aria-label="งบประมาณ">
+            <option value="">ทุกราคา</option>
+            <option value="1000000">ไม่เกิน 1 ล้าน</option>
+            <option value="2000000">ไม่เกิน 2 ล้าน</option>
+            <option value="5000000">ไม่เกิน 5 ล้าน</option>
+            <option value="10000000">ไม่เกิน 10 ล้าน</option>
+          </select>
+          <select data-filter-sort aria-label="เรียงลำดับ">
+            <option value="new">ปีใหม่สุด</option>
+            <option value="low">ราคาต่ำ → สูง</option>
+            <option value="high">ราคาสูง → ต่ำ</option>
+            <option value="km">ไมล์น้อยสุด</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="result-bar"><span><b data-count></b> คันพร้อมขาย</span><span>ผ่อนประมาณ ดาวน์ 25% · 72 งวด</span></div>
+        <div class="cars" data-grid style="padding-bottom: var(--section)"></div>
+      </div>
+    </main>
+
+    <div data-footer></div>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/motion.js"></script>
+  </body>
+</html>
